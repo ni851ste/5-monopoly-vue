@@ -15,12 +15,13 @@
         name: 'app',
         components: {
             'main-border': MainBorder,
-
         }
     }
 
 </script>
 
 <style>
-
+    .vsc-initialized {
+        background-color: lightgray;
+    }
 </style>

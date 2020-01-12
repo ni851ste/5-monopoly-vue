@@ -4,7 +4,7 @@
                             <button class="btn btn-primary" id="roll-button">Roll</button>
                             <button class="btn btn-danger" id="quit-button">Quit Game</button>
                         </div>
-                        <div id="buy-buttons" class="btn-group row buttonGroup">
+                        <div class="btn-group row buttonGroup" id="buy-buttons">
                             <br>
                         </div>
                         <div>
@@ -21,5 +21,42 @@
 </script>
 
 <style scoped>
+    @media (max-width: 992px) {
+        .buttons {
+            padding: 2em 10em 2em 2em;
+        }
+
+        .buy-button {
+            margin-top: 5px;
+        }
+    }
+
+
+    @media (min-width: 992px) {
+        .buttons {
+            padding: 2em;
+        }
+
+        .buy-button {
+            margin-top: 5px;
+        }
+
+        .one-buy-button {
+            padding-right: 2em;
+            margin-bottom: 1em;
+        }
+
+        .buy-house-span {
+            margin-right: 1em;
+        }
+
+        .house {
+            margin-right: 0.2em;
+        }
+    }
+
+    .buttons {
+        background-color: white;
+    }
 
 </style>

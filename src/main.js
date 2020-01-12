@@ -3,8 +3,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router';
 import VueNativeSock from 'vue-native-websocket'
 import UUID from 'vue-uuid';
-//import Game from './components/Game'
 import Rules from './components/Rules'
+import Game from './components/Game'
 import Toast from "vue-toastification";
 import HelloWorld from './components/HelloWorld'
 import "vue-toastification/dist/index.css";
@@ -26,6 +26,7 @@ Vue.use(Toast, {});
 const routes = [
   {path: '/', component: Rules },
   {path: '/hello', component: HelloWorld },
+  {path: '/game', component: Game },
   //{path: '/rules', component: Rules }
 ];
 

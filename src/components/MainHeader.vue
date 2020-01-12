@@ -15,4 +15,18 @@
 
 <style scoped>
 
+    .main-header {
+        background-color: white;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding-top: 0.5em;
+        min-height: 8em;
+    }
+
+    #main-header-current-player {
+        font-size: 1.2em;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
 </style>
