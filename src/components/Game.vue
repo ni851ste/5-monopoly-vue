@@ -32,6 +32,10 @@
             'main-header': MainHeader,
             'info-text': InfoText,
             'buttons': Buttons
+        },
+        methods: {
+        },
+        beforeMount() {
         }
     }
 </script>

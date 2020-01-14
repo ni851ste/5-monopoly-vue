@@ -1,6 +1,6 @@
 <template>
     <div class="main-border">
-        <p></p>
+        <router-view>view</router-view>
         <!--div class="main-frame-margin">
             <div class="main-frame border border-primary">
                 <p>{{ content }}</p>

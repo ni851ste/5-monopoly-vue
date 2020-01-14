@@ -6,7 +6,6 @@ import UUID from 'vue-uuid';
 import Rules from './components/Rules'
 import Game from './components/Game'
 import Toast from "vue-toastification";
-import HelloWorld from './components/HelloWorld'
 import "vue-toastification/dist/index.css";
 
 
@@ -15,7 +14,7 @@ Vue.config.productionTip = false;
 
 Vue.use(UUID);
 Vue.use(VueRouter);
-Vue.use(VueNativeSock, 'ws://localhost:9000/socket', {
+Vue.use(VueNativeSock, 'ws://localhost:9000/websocket', {
   reconnection: true, // (Boolean) whether to reconnect automatically (false)
   reconnectionAttempts: 5, // (Number) number of reconnection attempts before giving up (Infinity),
   reconnectionDelay: 3000, // (Number) how long to initially wait before attempting a new (1000)
@@ -25,7 +24,6 @@ Vue.use(Toast, {});
 
 const routes = [
   {path: '/', component: Rules },
-  {path: '/hello', component: HelloWorld },
   {path: '/game', component: Game },
   //{path: '/rules', component: Rules }
 ];

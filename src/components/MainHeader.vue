@@ -1,15 +1,31 @@
 <template>
     <span class="main-header border border-primary col-lg-10 col-md-10">
-        <p id="main-header-current-player"></p>
-        <p id="main-header-current-money"></p>
-        <p>MAIN HEADER</p>
+        <p id="main-header-current-player">{{this.currentPlayerName}}   &lt;----</p>
+        <p id="main-header-current-money">{{this.currentPlayerMoney}} €</p>
+        <p>{{this.tmpMessage}} helo</p>
                 </span>
 
 </template>
 
 <script>
     export default {
-        name: "MainHeader"
+        name: "MainHeader",
+        props: {
+            currentPlayerName: String,
+            currentPlayerMoney: Number,
+            tmpMessage: String
+        },
+        methods: {
+            async update() {
+                await new Promise(r => setTimeout(r, 1000));
+                let json = JSON.parse(this.$socket.send('json'));
+                this.currentPlayerName = json;
+                this.currentPlayerMoney = 10;
+            }
+        },
+        beforeMount() {
+            this.update()
+        }
     }
 </script>
 

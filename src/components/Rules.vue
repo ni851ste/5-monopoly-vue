@@ -58,9 +58,10 @@
             <div class="placeholder"/>
             <div class="border border-primary col-lg-10 place-maker">
                 <div class="btn-group col-lg-2 col-md-12">
-                    <a class="btn h-100 " href="/game" id="startGameButton">
+                    <!--a class="btn h-100 " href="/game" id="startGameButton">
                         <input type="button" value="PLAY GAME"/>
-                    </a>
+                    </a-->
+                    <router-link class="mr-3" to="/game">Play</router-link>
                 </div>
             </div>
             <div class="placeholder"/>

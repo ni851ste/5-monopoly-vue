@@ -17,6 +17,12 @@
 <script>
     export default {
         name: "Buttons"
+        ,
+        methods: {
+            //disableButtons(){}
+            //enableButtons(){}
+
+        }
     }
 </script>
 
