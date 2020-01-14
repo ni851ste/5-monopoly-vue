@@ -1,6 +1,6 @@
 <template>
     <div class="main-border">
-        <p>MAIN STUFF HERE</p>
+        <p></p>
         <!--div class="main-frame-margin">
             <div class="main-frame border border-primary">
                 <p>{{ content }}</p>
