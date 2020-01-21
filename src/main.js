@@ -19,7 +19,7 @@ Vue.config.productionTip = false;
 
 Vue.use(UUID);
 Vue.use(VueRouter);
-Vue.use(VueNativeSock, 'ws://localhost:9000/websocket', {
+Vue.use(VueNativeSock, 'ws://memepoly-backend.herokuapp.com/websocket', {
     reconnection: true, // (Boolean) whether to reconnect automatically (false)
     reconnectionAttempts: 5, // (Number) number of reconnection attempts before giving up (Infinity),
     reconnectionDelay: 3000, // (Number) how long to initially wait before attempting a new (1000)
