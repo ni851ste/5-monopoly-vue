@@ -8,13 +8,14 @@
         </div>
         <div class="row">
             <span class="col-lg-1"></span>
-            <info-text class="info-text">
-
-            </info-text>
+            <template v-if="user.loggedIn">
+                <info-text/>
+            </template>
             <span class="col-lg-1"></span>
-            <buttons class="buttons">
+            <template v-if="user.loggedIn">
+                <buttons/>
+            </template>
 
-            </buttons>
             <span class="col-lg-1"></span>
         </div>
     </div>
@@ -24,6 +25,7 @@
     import MainHeader from "./MainHeader";
     import InfoText from "./InfoText";
     import Buttons from "./Buttons";
+    import {mapGetters} from "vuex";
 
 
     export default {
@@ -34,6 +36,12 @@
             'buttons': Buttons
         },
         methods: {
+        },
+        computed: {
+            ...mapGetters({
+// map `this.user` to `this.$store.getters.user`
+                user: "user"
+            })
         },
         beforeMount() {
         }
@@ -50,34 +58,6 @@
             margin-top: 2em;
             margin-bottom: 2em;
         }
-
-        .buttons {
-            padding: 2em 10em 2em 2em;
-        }
-
-        .buy-button {
-            margin-top: 5px;
-        }
-    }
-
-    @media (min-width: 992px) {
-
-        .buttons {
-            padding: 2em;
-        }
-        
-        .info-text {
-
-        }
-    }
-
-    .info-text {
-        padding-top: 1em;
-        background-color: white;
-    }
-
-    .buttons {
-        background-color: white;
     }
 
     .main-header {

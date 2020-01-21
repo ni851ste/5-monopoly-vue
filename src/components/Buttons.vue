@@ -15,6 +15,7 @@
 
 <script>
     import JQuery from 'jquery'
+    import {mapGetters} from "vuex";
 
     let $ = JQuery;
 
@@ -116,6 +117,12 @@
                         break;
                 }
             }
+        },
+        computed: {
+            ...mapGetters({
+// map `this.user` to `this.$store.getters.user`
+                user: "user"
+            })
         },
     }
 </script>
