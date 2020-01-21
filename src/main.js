@@ -56,13 +56,13 @@ new Vue({
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyANMAoY-smVMDj5AJJGJYMD6_97FdmEtWM",
-  authDomain: "htwg-webtech-rummy.firebaseapp.com",
-  databaseURL: "https://htwg-webtech-rummy.firebaseio.com",
-  projectId: "htwg-webtech-rummy",
-  storageBucket: "htwg-webtech-rummy.appspot.com",
-  messagingSenderId: "206658326580",
-  appId: "1:206658326580:web:4e6a7faf153d80f0243a61"
+  apiKey: "AIzaSyAbBICjY9A2kqYPp2bCwA1u3xM4DNh4-Rc",
+  authDomain: "monopoly-b36b7.firebaseapp.com",
+  databaseURL: "https://monopoly-b36b7.firebaseio.com",
+  projectId: "monopoly-b36b7",
+  storageBucket: "monopoly-b36b7.appspot.com",
+  messagingSenderId: "926263902416",
+  appId: "1:926263902416:web:8d5839e8da382baff39ed5"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
