@@ -63,7 +63,7 @@
         let currentPlayer = getCurrentPlayer(json);
         currentPlayer.bought_fields.sort(compareStreet).forEach(f => {
             buyButtons.append(
-                $('<div/>', {'class': 'one-buy-button'}).append(
+                $('<div/>', {'class': 'one-buy-button', 'style': 'margin-top: 1em'}).append(
                     $('<p/>', {'class': 'house-par', 'id': f.name + '-p'})
                         .append($('<span/>', {'class': 'buy-house-span', 'text': f.name}))
                 ).append(
@@ -101,7 +101,10 @@
             },
             quitGame() {
                 this.$socket.send(QUIT);
-            }
+            },
+            beforeMount() {
+                this.demandUpdate()
+            },
         },
         created() {
             this.$options.sockets.onmessage = (data) => {
@@ -142,6 +145,7 @@
     @media (min-width: 992px) {
         .buttons {
             padding: 2em;
+            padding-top: 1em;
         }
 
         .buy-button {

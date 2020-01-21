@@ -2,7 +2,7 @@
     <span class="main-header border border-primary col-lg-10 col-md-10">
 
         <span id="main-header-current-player">
-                {{this.currentPlayerName}}name
+                {{this.currentPlayerName}}
             <template v-if="user.loggedIn">
                 <div id="username">
                     <p>
@@ -14,7 +14,7 @@
                 </div>
             </template>
             <template v-else>
-                <p class="float-right">
+                <p class="float-none">
                     <router-link to="login" class="nav-link">
                         <button class="btn btn-primary ">Login</button>
                     </router-link>
@@ -26,7 +26,7 @@
         </span>
 
         <p id="main-header-current-money">
-            {{this.currentPlayerMoney}}money
+            {{this.currentPlayerMoney}}
         </p>
 
     </span>
@@ -62,6 +62,21 @@
                 user: "user"
             })
         },
+        created() {
+            this.$options.sockets.onmessage = (data) => {
+                let json = JSON.parse(data.data);
+                window.console.log("DATA");
+                window.console.log(json);
+                let currentPlayerName3 = currentPlayerName(json);
+                window.console.log("NAME:" + currentPlayerName3);
+                this.currentPlayerName = currentPlayerName3;
+
+                let currentPlayerMoney3 = String(getCurrentMoney(json)) + ' €';
+                window.console.log("MONEY:" + currentPlayerMoney3);
+                this.currentPlayerMoney = currentPlayerMoney3;
+            };
+        },
+
         methods: {
             async demandUpdate() {
                 await new Promise(r => setTimeout(r, 300));
@@ -81,15 +96,7 @@
             beforeMount() {
                 this.demandUpdate()
             },
-            created() {
-                this.$options.sockets.onmessage = (data) => {
-                    let json = JSON.parse(data.data);
-                    window.console.log("DATA");
-                    window.console.log(json);
-                    this.currentPlayerName = currentPlayerName(json);
-                    this.currentPlayerMoney = String(getCurrentMoney(json));//+ ' €';
-                };
-            }
+
         }
     }
 </script>

@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Register</div>
+                <div class="card border border-primary">
+                    <div class="card-header border-bottom border-primary ">Register</div>
                     <div class="card-body">
                         <div v-if="error.success === false" class="alert alert-danger">{{error.message}}</div>
                         <div v-else-if="error.success === true" class="alert alert-success">{{error.message}}</div>
@@ -13,7 +13,7 @@
                                 <div class="col-md-6">
                                     <input
                                             id="name"
-                                            class="form-control"
+                                            class="form-control border border-primary"
                                             name="name"
                                             value
                                             required
@@ -28,7 +28,7 @@
                                 <div class="col-md-6">
                                     <input
                                             id="email"
-                                            class="form-control"
+                                            class="form-control border border-primary"
                                             name="email"
                                             value
                                             required
@@ -44,7 +44,7 @@
                                 <div class="col-md-6">
                                     <input
                                             id="password"
-                                            class="form-control"
+                                            class="form-control  border border-primary"
                                             name="password"
                                             required
                                             v-model="form.password"
