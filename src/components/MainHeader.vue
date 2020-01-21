@@ -1,13 +1,25 @@
 <template>
     <span class="main-header border border-primary col-lg-10 col-md-10">
-        <p id="main-header-current-player">{{this.currentPlayerName}}   &lt;----</p>
+        <p id="main-header-current-player">{{this.currentPlayerName}}</p>
         <p id="main-header-current-money">{{this.currentPlayerMoney}} €</p>
-        <p>{{this.tmpMessage}} helo</p>
                 </span>
 
 </template>
 
 <script>
+
+    function getCurrentPlayer(json) {
+        return json.board.players.find(p => p.name === json.board.current_player);
+    }
+
+    function currentPlayerName(json) {
+        return json.board.current_player;
+    }
+
+    function getCurrentMoney(json) {
+        return getCurrentPlayer(json).money;
+    }
+
     export default {
         name: "MainHeader",
         props: {
@@ -16,15 +28,23 @@
             tmpMessage: String
         },
         methods: {
-            async update() {
-                await new Promise(r => setTimeout(r, 1000));
-                let json = JSON.parse(this.$socket.send('json'));
-                this.currentPlayerName = json;
-                this.currentPlayerMoney = 10;
-            }
+            async demandUpdate() {
+                await new Promise(r => setTimeout(r, 300));
+                this.$socket.send('json');
+            },
+
         },
         beforeMount() {
-            this.update()
+            this.demandUpdate()
+        },
+        created() {
+            this.$options.sockets.onmessage = (data) => {
+                let json = JSON.parse(data.data)
+                window.console.log("DATA");
+                window.console.log(json);
+                this.currentPlayerName = currentPlayerName(json);
+                this.currentPlayerMoney = getCurrentMoney(json);
+            };
         }
     }
 </script>

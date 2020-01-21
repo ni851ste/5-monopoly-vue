@@ -15,13 +15,42 @@
 </template>
 
 <script>
+    import JQuery from 'jquery'
+    let $ = JQuery
+
+    function removeBuyButtons() {
+    }
+
+    function hideStaticButtons() {
+        $("#roll-button").css({"display": "none"});
+        $("#quit-button").css({"display": "none"});
+        $("#end-turn-button").css({"display": "block"});
+    }
+
+    function showStaticButtons() {
+        $("#roll-button").css({"display": "block"});
+        $("#quit-button").css({"display": "block"});
+        $("#end-turn-button").css({"display": "none"});
+    }
+
     export default {
         name: "Buttons"
         ,
-        methods: {
-            //disableButtons(){}
-            //enableButtons(){}
-
+        methods: {},
+        created() {
+            this.$options.sockets.onmessage = (data) => {
+                let json = JSON.parse(data.data)
+                switch (String(json.board.state)) {
+                    case "START_OF_TURN":
+                        removeBuyButtons();
+                        showStaticButtons();
+                        break;
+                    case "CAN_BUILD":
+                        hideStaticButtons();
+                        //generateBuyButtons(json);
+                        break;
+                }
+            }
         }
     }
 </script>
