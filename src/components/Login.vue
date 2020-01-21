@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Login</div>
+                <div class="card border border-primary box">
+                    <div class="card-header border-bottom border-primary">Login</div>
                     <div class="card-body">
                         <div v-if="error.success === false" class="alert alert-danger">{{error.message}}</div>
                         <div v-else-if="error.success === true" class="alert alert-success">{{error.message}}</div>
@@ -15,7 +15,7 @@
                                     <input
                                             id="email"
                                             type="email"
-                                            class="form-control"
+                                            class="form-control border border-primary"
                                             name="email"
                                             value
                                             required
@@ -32,7 +32,7 @@
                                     <input
                                             id="password"
                                             type="password"
-                                            class="form-control"
+                                            class="form-control border border-primary"
                                             name="password"
                                             required
                                             v-model="form.password"
@@ -44,7 +44,7 @@
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">Login</button>
                                 </div>
-                                <a type="submit" class="m-4" v-on:click="resetPassword()"><u>Forget Password</u></a>
+                                <a type="submit" class="m-4" v-on:click="resetPassword()"><u>Forgot Password</u></a>
                             </div>
                         </form>
                     </div>
@@ -104,3 +104,9 @@
         }
     };
 </script>
+
+<style scoped>
+    .container {
+        margin-top: 5%;
+    }
+</style>

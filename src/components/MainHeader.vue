@@ -1,20 +1,24 @@
 <template>
     <span class="main-header border border-primary col-lg-10 col-md-10">
         <p id="main-header-current-player">{{this.currentPlayerName}}</p>
-        <p id="main-header-current-money">{{this.currentPlayerMoney}} €</p>
+        <p id="main-header-current-money">{{this.currentPlayerMoney}}</p>
     <template v-if="user.loggedIn">
-                        <div class="nav-item">{{user.data.displayName}}</div>
-                        <li class="nav-item">
-                            <a class="nav-link" @click.prevent="signOut">Sign out</a>
-                        </li>
-                    </template>
-                    <template v-else>
-                        <li class="nav-item">
-                            <router-link to="login" class="nav-link">Login</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="register" class="nav-link">Register</router-link>
-                        </li>
+        <div class="nav-item">{{user.data.displayName}}</div>
+            <li class="nav-item">
+                <a class="nav-link" @click.prevent="signOut">Sign out</a>
+            </li>
+            </template>
+            <template v-else>
+                <p>
+                    <router-link to="login" class="nav-link">
+                        <button class="btn btn-primary">Login</button>
+                    </router-link>
+                <router-link to="register" class="nav-link">
+                    <button class="btn btn-primary">Register</button>
+
+                </router-link>
+
+                </p>
                     </template>
     </span>
 
@@ -40,7 +44,7 @@
         name: "MainHeader",
         props: {
             currentPlayerName: String,
-            currentPlayerMoney: Number,
+            currentPlayerMoney: String,
             tmpMessage: String
         },
         computed: {
@@ -74,7 +78,7 @@
                     window.console.log("DATA");
                     window.console.log(json);
                     this.currentPlayerName = currentPlayerName(json);
-                    this.currentPlayerMoney = getCurrentMoney(json);
+                    this.currentPlayerMoney = String(getCurrentMoney(json)) + ' €';
                 };
             }
         }
