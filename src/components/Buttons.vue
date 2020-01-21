@@ -69,6 +69,7 @@
                     $('<button/>', {
                         'id': f.name + '-button',
                         'class': 'buy-button btn-primary',
+                        'title' : f.houseCost + '€',
                         'text': "Buy house on " + f.name,
                         click: () => {
                             socket.send(f.name)
